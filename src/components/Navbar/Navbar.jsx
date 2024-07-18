@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 export function Navbar() {
     let paths = {
         "/": "movies",
-        "/theatres": "theatres"
+        "/theatres": "theatres",
+        "/login": "login"
     }
-    
+
     let [currentTab, setCurrentTab] = useState(paths[window.location.pathname]);
 
     return (
@@ -16,6 +17,7 @@ export function Navbar() {
                 <li className="font-bold text-3xl p-2">
                     BookMe!
                 </li>
+                
                 <li className="flex-1 flex items-center justify-center gap-2">
                     <input type="text" placeholder="Search for movies" className="px-4 p-2 rounded w-1/2 color-black" />
 
@@ -23,9 +25,10 @@ export function Navbar() {
                         <BiSearch />
                     </button>
                 </li>
+
                 <li className="flex items-center gap-4 px-2">
                     <Link to="/login">
-                        <button className="btn btn-primary p-2 rounded font-semibold hover:scale-95 active:scale-90">
+                        <button className="btn btn-primary p-2 rounded font-semibold hover:scale-95 active:scale-90" onClick={() => setCurrentTab("login")}>
                             Login
                         </button>
                     </Link>
