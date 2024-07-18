@@ -1,6 +1,6 @@
 import { MovieList } from "../components";
 
-export function HomePage() {
+export function MoviesPage() {
     let moviesData = [
         {
             id: "m1-dpwl",

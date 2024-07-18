@@ -1,5 +1,5 @@
 :root {
-    --color-primary: hsl(24, 100%, 50%);
+    --color-primary: hsl(325, 100%, 50%);
     --color-secondary: hsl(234, 55%, 7%);
     
     --color-link: hsl(217, 71%, 53%);
@@ -111,3 +111,50 @@
     background-color: var(--color-black);
 }
 
+.border-primary {
+    border-color: var(--color-primary);
+}
+
+.border-secondary {
+    border-color: var(--color-secondary);
+}
+
+.border-link {
+    border-color: var(--color-link);
+}
+
+.border-info {
+    border-color: var(--color-info);
+}
+
+.border-success {
+    border-color: var(--color-success);
+}
+
+.border-warning {
+    border-color: var(--color-warning);
+}
+
+.border-danger {
+    border-color: var(--color-danger);
+}
+
+.border-white {
+    border-color: var(--color-white);
+}
+
+.border-light {
+    border-color: var(--color-light);
+}
+
+.border-gray {
+    border-color: var(--color-gray);
+}
+
+.border-dark {
+    border-color: var(--color-dark);
+}
+
+.border-black {
+    border-color: var(--color-black);
+}
