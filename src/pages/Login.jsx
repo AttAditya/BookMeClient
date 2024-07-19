@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import api from "../api";
 
 export function LoginPage() {
     let [authMode, setAuthMode] = useState("login");
+    let nameRef = useRef();
+    let emailRef = useRef();
+    let passwordRef = useRef();
 
     function handleAuth(event) {
         event.preventDefault();
@@ -13,12 +17,21 @@ export function LoginPage() {
         }
     }
 
-    function loginAction(event) {
-        console.log("Login action");
+    async function loginAction(event) {
+        let email = emailRef.current.value;
+        let password = passwordRef.current.value;
+
+        let resp = await api.auth.login(email, password);
+        console.log(resp);
     }
 
-    function registerAction(event) {
-        console.log("Register action");
+    async function registerAction(event) {
+        let name = nameRef.current.value;
+        let email = emailRef.current.value;
+        let password = passwordRef.current.value;
+
+        let resp = await api.auth.register(name, email, password);
+        console.log(resp);
     }
 
     return (
@@ -40,7 +53,7 @@ export function LoginPage() {
                                     <label htmlFor="name" className="label font-semibold text-lg">
                                         Name
                                     </label>
-                                    <input type="text" className="input p-2 rounded w-full mt-2" placeholder="Enter your name" />
+                                    <input type="text" className="input p-2 rounded w-full mt-2 color-black" placeholder="Enter your name" ref={nameRef} />
                                 </div>
                             )
                         }
@@ -49,14 +62,14 @@ export function LoginPage() {
                             <label htmlFor="email" className="label font-semibold text-lg">
                                 Email
                             </label>
-                            <input type="email" className="input p-2 rounded w-full mt-2" placeholder="Enter your username" />
+                            <input type="email" className="input p-2 rounded w-full mt-2 color-black" placeholder="Enter your username" ref={emailRef} />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="password" className="label font-semibold text-lg">
                                 Password
                             </label>
-                            <input type="password" className="input p-2 rounded w-full mt-2" placeholder="Enter your password" />
+                            <input type="password" className="input p-2 rounded w-full mt-2 color-black" placeholder="Enter your password" ref={passwordRef} />
                         </div>
 
                         <div className="form-group pt-4">
